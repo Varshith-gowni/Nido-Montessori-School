@@ -1,0 +1,786 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Patrick Hand', cursive;}
+
+/* FULL PAGE BACKGROUND IMAGE */
+.site-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./assets/background.jpg') no-repeat center center/cover;
+    z-index: -1;                  /* Keeps background BEHIND all content */
+    opacity: 0.25;                /* CHANGE THIS VALUE TO ADJUST OPACITY */
+    pointer-events: none;         /* Prevents background from blocking clicks */
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.90);  /* low opacity overlay to fade bg */
+    z-index: -1;
+}
+
+/* LAYOUT */
+.container {
+    margin-left: 260px; 
+    padding: 40px;
+}
+
+/* LOGO */
+.logo-container {
+    position: fixed;
+    top: 15px;
+    left: 60px;
+    z-index: 99999;      /* raise above ALL layers */
+}
+
+.logo-container a {
+    display: block;      /* makes the entire logo clickable */
+}
+
+.logo-container img {
+    width: 95px;
+    cursor: pointer;
+    border-radius: 80px;
+    display: block;      /* removes inline gaps */
+    pointer-events: auto;
+}
+
+/* TOP MENU */
+.top-menu {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 80px;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.top-menu a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    transition: 0.3s ease;
+}
+
+.top-menu a:hover {
+    color: #c4935c; /* Gold shade to match your theme */
+    transform: translateY(-2px);
+}
+
+/* Push content down because menu is fixed */
+.container {
+    margin-top: 50px;
+}
+
+/* LEFT SIDEBAR MENU */
+.sidebar {
+    position: fixed;
+    top: 125px;
+    left: 20px;
+    width: 220px;
+    padding: 20px;
+    background: #f7f2e8;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.sidebar a {
+    display: block;
+    margin: 12px 0;
+    padding: 10px;
+    background: #fefbf6;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.sidebar a:hover {
+    background: #e8dcc2;
+}
+
+/* HERO LAYOUT */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 40px;
+    background: #faf4e8;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+/* LEFT TEXT */
+.hero-text {
+    max-width: 65%;
+}
+/* HERO LOGO (Customizable Rectangle) */
+.hero-logo {
+    width: 100%;              /* Makes it responsive */
+    max-width: 620px;         /* Adjust size here */
+    width: 650px;      /* change this */
+    height: 300px;     /* change this */
+    object-fit: contain;      /* Prevents cropping */
+    border-radius: 12px;      /* Optional – remove if you want sharp edges */
+    display: block;
+    margin: 0 auto 20px;      /* Centers the logo */
+}
+.hero-text h1 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-left: 20px;
+    font-weight: 900;
+    color: #2a2a2a;
+    font-family: 'Patrick Hand', cursive;
+}
+
+/* BUTTON STYLE (crayon-like) */
+.cta-btn {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 200px;
+    background: #7fc2e8;
+    padding: 12px 25px;
+    border-radius: 20px;
+    color: #000;
+    font-weight: 1000;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: #5ba7d1;
+}
+
+/* RIGHT IMAGE */
+.hero-img img {
+    width: 420px;
+    max-width: 100%;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.hero-img img:hover {
+    transform: scale(1.03);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+}
+
+/* ================= CRAYON BUTTON ================= */
+.crayon-btn {
+    position: relative;
+    display: inline-block;
+    padding: 12px 32px;
+    font-size: 22px;
+    text-decoration: none;
+    color: black;
+    background: #6fb0d9;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.crayon-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("https://www.transparenttextures.com/patterns/crissxcross.png");
+    opacity: 0.25;
+}
+
+.crayon-btn:hover {
+    animation: wobble 0.4s ease;
+}
+
+@keyframes wobble {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    50% { transform: rotate(-2deg); }
+    75% { transform: rotate(1deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* ================= IMAGE CIRCLE ================= */
+.circle-img {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    border: 15px solid #e57452;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.circle-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CENTERED CONTENT PAGES */
+/* -------------------------------------------
+   PAPER BACKGROUND
+-------------------------------------------- */
+body {
+    background: #f5f1e7;
+    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    background-size: 600px;
+}
+
+
+/* -------------------------------------------
+   SECTION STYLING
+-------------------------------------------- */
+.crayon-section {
+    padding: 90px 0;
+    text-align: center;
+}
+
+
+/* -------------------------------------------
+   CRAYON STROKE BUTTON (CLICKABLE)
+-------------------------------------------- */
+.crayon-stroke-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 900px;
+    height: 200px;
+
+    text-align: center;
+    text-decoration: none;
+
+    /* TEXT STYLE */
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Patrick Hand', cursive;
+    font-weight: bold;
+
+    /* BASE COLOR */
+    background: #86b7fe;
+
+    /* CRAYON TEXTURES */
+    background-image:
+        url("https://www.transparenttextures.com/patterns/asfalt-light.png"),
+        url("https://www.transparenttextures.com/patterns/beige-paper.png");
+    background-blend-mode: multiply;
+    background-size: cover;
+
+    /* ORGANIC HAND-DRAWN SHAPE (SVG MASK) */
+    -webkit-mask-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 300'>\
+<path d='M40,120 Q140,20 340,70 T780,80 Q890,90 960,120 Q890,170 740,210 T300,200 Q100,180 40,120Z' fill=\"black\"/>\
+</svg>");
+    mask-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 300'>\
+<path d='M40,120 Q140,20 340,70 T780,80 Q890,90 960,120 Q890,170 740,210 T300,200 Q100,180 40,120Z' fill=\"black\"/>\
+</svg>");
+
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+
+    /* SOFT CRAYON SHADOW */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+
+    /* ANIMATION */
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+/* HOVER ANIMATION */
+.crayon-stroke-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    filter: brightness(1.08);
+}
+
+
+/* -------------------------------------------
+   RESPONSIVE
+-------------------------------------------- */
+@media (max-width: 600px) {
+    .crayon-stroke-btn {
+        height: 90px;
+        font-size: 22px;
+    }
+}
+
+
+/* TWO COLUMN SECTIONS */
+.section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    gap: 40px;
+}
+.section .text {
+    flex: 1;
+    line-height: 1.7;
+    font-size: 18px;
+}
+.section .images-column {
+    flex: 1;
+}
+.images-column img {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+/* BLOG PLACEHOLDERS */
+/* GLOBAL */
+body {
+  margin: 0;
+  background: #f6f1e8;
+  font-family: Arial, sans-serif;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+/* -------------------------------------- */
+/* 🌿 BLOB SECTION */
+/* -------------------------------------- */
+.blob-section {
+  padding: 40px 20px;
+}
+
+.wrapper {
+  width: 95%;
+  max-width: 950px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+/* Blob Base Style */
+.blob {
+  position: relative;
+  width: 280px;
+  height: 200px;
+  border-radius: 60% 40% 55% 45% / 60% 45% 55% 40%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 25px;
+  text-align: center;
+  color: #333;
+  animation: blobMove 6s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.blob:hover {
+  transform: scale(1.08);
+}
+
+@keyframes blobMove {
+  0% {
+    border-radius: 60% 40% 55% 45% / 60% 45% 55% 40%;
+  }
+  50% {
+    border-radius: 50% 60% 45% 55% / 55% 60% 45% 50%;
+  }
+  100% {
+    border-radius: 60% 40% 55% 45% / 60% 45% 55% 40%;
+  }
+}
+
+/* Blob colors */
+.green { background: #b8d8c0; }
+.peach { background: #e6a58f; }
+.yellow { background: #f2d47a; }
+
+/* Blob icons */
+.blob-icon {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  object-fit: contain;
+}
+
+.blob p {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 40px;
+}
+
+/* Responsive Blobs */
+@media (max-width: 850px) {
+  .wrapper {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .blob {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* TWO COLUMN SECTIONS */
+.section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    gap: 40px;
+}
+.section .text {
+    flex: 1;
+    line-height: 1.7;
+    font-size: 18px;
+}
+.section .images-column {
+    flex: 1;
+}
+.images-column img {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+/* BLOG LIST STYLE */
+.blog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+}
+
+.blog-list li {
+    background: #f5ebda;
+    padding: 20px 25px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    border: 2px dashed #d6c1a5;
+    font-size: 22px;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.blog-list li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.blog-list li:hover {
+    background: #f0e4cc;
+    transform: translateX(5px);
+    transition: 0.3s ease;
+}
+
+/* CRAYON SECTION WRAPPER */
+.crayon-section {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 60px;
+    font-family: 'Patrick Hand', cursive;
+}
+
+/* MAKE ENTIRE BAR CLICKABLE */
+.crayon-link {
+    text-decoration: none;
+}
+
+/* GENERIC BAR STYLE */
+.crayon-bar {
+    padding: 20px 20px;
+    border-radius: 40px;
+    font-size: 30px;
+    text-align: center;
+    color: #000;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+/* HOVER EFFECT → crayon wobble + slightly darker */
+.crayon-bar:hover {
+    transform: scale(1.03) rotate(-1deg);
+    filter: brightness(0.9);
+}
+
+/* BLUE BAR */
+.blue-bar {
+    background-image: url("assets/crayon-blue-even-top-bottom.svg");
+    background-color: #03A9F4;
+}
+
+.crayon-section a {
+    display: block;
+    margin-bottom: 35px; /* space between the blue and brown bar */
+}
+
+/* BROWN BAR */
+.brown-bar {
+    background-image: url("assets/crayon-brown-even-top-bottom.svg");
+    background-color: #c4935c;
+}
+
+/* SOCIAL ICONS */
+.social-row {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin-bottom: -50px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+}
+
+/* ICON SIZE */
+.social-item img {
+    width: 28px;
+    height: 28px;
+}
+
+/* INDIVIDUAL SOCIAL LINKS */
+.social-icon-link {
+    text-decoration: none;
+    color: #000;
+    transition: 0.2s ease;
+}
+
+/* HOVER EFFECT ONLY ON ICONS */
+.social-icon-link:hover {
+    transform: scale(1.08);
+    color: #000;
+}
+
+/* ========================= NEW FAQ STYLE ========================= */
+
+.faq-main {
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.faq-questions {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.faq-item {
+    background: #f5ebda;
+    border: 2px dashed #d6c1a5;
+    border-radius: 12px;
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.faq-q:hover {
+    color: #c4935c;
+}
+
+.faq-a {
+    display: none;
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.faq-item.open .faq-a {
+    display: block;
+}
+
+/* CONTACT FORM */
+.form-container {
+    background: #f7f2e8;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 700px;
+    margin: auto;
+}
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.form-container button {
+    background: #c4935c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 50px 80px;
+    background: #f3e8d8;
+    font-family: 'Patrick Hand', cursive;
+    column-gap: 50px;
+}
+
+/* LOGO */
+.footer-logo {
+    width: 140px;
+    border-radius: 50%;
+}
+
+/* MENU */
+.menu-col a {
+    display: block;
+    margin-bottom: 10px;
+    color: #000;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.menu-col a:hover {
+    color: #c4935c;
+}
+
+/* CONTACT */
+.contact-col p {
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-footer img {
+    width: 32px;
+    height: 32px;
+    transition: 0.3s ease;
+}
+
+.social-footer:hover img {
+    transform: scale(1.1);
+}
+
+/* LOCATION */
+.location-col p {
+    font-size: 20px;
+}
+
+/* MAP */
+.footer-map {
+    width: 100%;
+    height: 150px;   /* ADJUST MAP SIZE HERE */
+    border: 0;
+    border-radius: 12px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .footer {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 40px;
+        padding: 40px;
+    }
+
+    .footer-map {
+        height: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    .footer-map {
+        height: 100px;
+    }
+}
+
+/* MOBILE */
+@media(max-width: 900px) {
+    .container { margin-left: 0; padding: 20px; }
+    .sidebar { display: none; }
+    footer { flex-direction: column; text-align: center; }
+    footer .col { width: 100%; margin-bottom: 20px; }
+}
+
+/* ================= CORE VALUES TEXT CENTER ================= */
+.center-text {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+h1 {
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .crayon-section {
+        margin-top: 30px;
+    }
+}
+

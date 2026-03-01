@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Favicon -->
+<link rel="icon" type="image/png" href="./assets/favicon.png">
+<link rel="shortcut icon" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
+    <title>Contact Us – NIDO Montessori</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site-background"></div>
+<div class="logo-container"><a href="index.html"><img src="./assets/logo.png"></a></div>
+
+ <!-- TOP MENU -->
+<div class="top-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="mission-vision.html">Mission & Vision</a>
+    <a href="programs.html">Programs & Environments</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="faqs.html">FAQ's</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact Us</a>
+</div>
+
+
+<div class="sidebar">
+    <a href="about.html">About Us</a>
+    <a href="mission-vision.html">Mission & Vision</a>
+    <a href="programs.html">Programs & Environments</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="faqs.html">FAQ's</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact Us</a>
+</div>
+
+<div class="container">
+
+<h1 class="page-header"><br><br>CONTACT US</h1>
+<br>
+<div class="center-text">
+We would love to hear from you! Whether you have questions about our programs, the Montessori
+Method, or wish to schedule a visit, our team at NIDO is here to assist you.
+</div>
+
+<h2 style="margin-top:40px;">Send Us a Message:</h2><br>
+<p>
+    Please fill out the form below, and we will get back to you ASAP (Ideally within a day)
+</p><br><br>
+
+<div class="form-container">
+
+    <form id="contactForm" action="https://formsubmit.co/info@nidomontessori.in" method="POST">
+
+        <!-- FormSubmit settings -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Redirect AFTER sending email -->
+        <input type="hidden" name="_next" value="https://nidomontessori.in/whatsapp-redirect.html">
+
+        <label>Full Name *</label>
+        <input type="text" id="name" name="Full Name" required>
+
+        <label>Email Address *</label>
+        <input type="email" id="email" name="Email" required>
+
+        <label>Phone Number (Optional)</label>
+        <input type="text" id="phone" name="Phone">
+
+        <label>Child's Age (Optional)</label>
+        <input type="text" id="age" name="Child Age">
+
+        <label>Inquiry Type</label>
+        <select id="inquiry" name="Inquiry Type">
+            <option>General Question</option>
+            <option>Tour Request</option>
+            <option>Admissions Info</option>
+        </select>
+
+        <label>Your Message *</label>
+        <textarea id="message" name="Message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+    </form>
+
+</div>
+
+<h2 style="margin-top:40px;">School Contact Details</h2>
+<br>
+<div class="">
+NIDO – A Montessori Preschool<br>
+Plot No. 405, Block no. 19,<br>
+Lahari Green Park Road,<br>
+Bowrampet, Telangana - 500043<br><br>
+<b>Phone:</b> 9618853888, 8712034644<br>
+<!-- Email Click -->
+    <a href="mailto:info@nidomontessori.in" style="color:#000; text-decoration:none;">
+        <b>Email:</b> info@nidomontessori.in
+    </a><br>
+<b>Office Hours:</b> Monday - Saturday (8:30 AM - 3:00 PM)
+</div>
+
+<!-- MAP PLACEHOLDER -->
+<h2 style="margin-top:40px;">Find Us on the Map</h2><br>
+<div class="map-container" style="text-align:center; background:#f7f2e8; padding:20px; border-radius:15px;">
+<a href="https://www.google.com/maps/place/17%C2%B033'11.5%22N+78%C2%B023'01.9%22E/@17.5536953,78.3826678,18z/data=!4m4!3m3!8m2!3d17.5531826!4d78.3838654?hl=en&entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
+       target="_blank">
+        <iframe
+            class="footer-map"
+            src="https://www.google.com/maps?q=17.5531826,78.3838654&z=16&output=embed">
+                width="100%"        <!-- adjust width here -->
+                height="300%"        <!-- adjust height here -->
+                style="border:0; border-radius:12px;">
+        </iframe>
+    </a></div>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function() {
+    const name = encodeURIComponent(document.getElementById("name").value);
+    const email = encodeURIComponent(document.getElementById("email").value);
+    const phone = encodeURIComponent(document.getElementById("phone").value);
+    const age = encodeURIComponent(document.getElementById("age").value);
+    const inquiry = encodeURIComponent(document.getElementById("inquiry").value);
+    const message = encodeURIComponent(document.getElementById("message").value);
+
+    localStorage.setItem("w_name", name);
+    localStorage.setItem("w_email", email);
+    localStorage.setItem("w_phone", phone);
+    localStorage.setItem("w_age", age);
+    localStorage.setItem("w_inquiry", inquiry);
+    localStorage.setItem("w_message", message);
+});
+</script>
+
+<script src="script.js"></script>
+
+<!-- INSERT THIS JS ABOVE THE CLOSING BODY TAG -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", function() {
+    const name = encodeURIComponent(document.getElementById("name").value);
+    const email = encodeURIComponent(document.getElementById("email").value);
+    const phone = encodeURIComponent(document.getElementById("phone").value);
+    const age = encodeURIComponent(document.getElementById("age").value);
+    const inquiry = encodeURIComponent(document.getElementById("inquiry").value);
+    const message = encodeURIComponent(document.getElementById("message").value);
+
+    localStorage.setItem("w_name", name);
+    localStorage.setItem("w_email", email);
+    localStorage.setItem("w_phone", phone);
+    localStorage.setItem("w_age", age);
+    localStorage.setItem("w_inquiry", inquiry);
+    localStorage.setItem("w_message", message);
+});
+</script>
+</div>
+
+<footer class="footer">
+
+   <!-- 1) LOGO -->
+    <div class="footer-col logo-col">
+        <img src="./assets/logo.png" class="footer-logo">
+    </div>
+
+    <!-- 2) MENU -->
+    <div class="footer-col menu-col">
+        <a href="about.html">About Us</a>
+        <a href="mission-vision.html">Mission & Vision</a>
+        <a href="programs.html">Programs & Environments</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="faqs.html">FAQ's</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="careers.html">Careers</a>
+    </div>
+
+  <!-- 3) CONTACT + SOCIAL -->
+    <div class="footer-col contact-col">
+        <p><strong>Phone:</strong> 9618853888, 8712034644</p>
+<!-- Email Click -->
+    <a href="mailto:info@nidomontessori.in" style="color:#000; text-decoration:none;">
+        <b>Email:</b> info@nidomontessori.in
+    </a>
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/share/1HvdMm4v2Z/?mibextid=wwXIfr" class="social-footer"><img src="assets/facebook logo 2.webp"></a>
+            <a href="https://www.instagram.com/nido_montessorischool?igsh=c2tsN3p2dnJnOGZv&utm_source=qr" class="social-footer"><img src="assets/instagram.avif"></a>
+            <a href="https://wa.me/919618853888" class="social-footer"><img src="assets/WhatsApp.svg.webp"></a>
+
+        </div>
+    </div>
+
+    <!-- 4) LOCATION + MAP (LINKED TO GOOGLE MAPS) -->
+    <div class="footer-col location-col">
+        <p><strong>Bowrampet, Hyderabad</strong></p>
+
+        <!-- Map Box -->
+        <!-- 4) LOCATION + MAP -->
+<div class="footer-col location-col">
+
+    <!-- EMBEDDED MAP (ALSO CLICKABLE) -->
+    <a href="https://www.google.com/maps/place/17%C2%B033'11.5%22N+78%C2%B023'01.9%22E/@17.5536953,78.3826678,18z/data=!4m4!3m3!8m2!3d17.5531826!4d78.3838654?hl=en&entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D"
+       target="_blank">
+        <iframe
+            class="footer-map"
+            src="https://www.google.com/maps?q=17.5531826,78.3838654&z=16&output=embed">
+        </iframe>
+    </a>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
