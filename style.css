@@ -52,26 +52,35 @@ body::before {
     pointer-events: auto;
 }
 
+.top-menu a,
+.sidebar a {
+    color: #636B2F !important;
+    font-weight: 700 !important;
+    
+}
 /* TOP MENU */
 .top-menu {
-    width: 100%;
-    margin-top: 10px;
-    margin-left: 80px;
-    padding: 30px 0;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    background: transparent;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
-    font-family: 'Patrick Hand', cursive;
+    width: 100%;
+    height: 120px;
+    padding: 20px 0;
+    background: #f9f1e4;  /* light cream background */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding-left: 200px;
+    border-bottom: 2px solid #e8dcc2;   /* soft bottom border */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
 }
 
 .top-menu a {
     text-decoration: none;
     font-size: 16px;
+    margin-top: 25px;
     font-weight: 500;
     color: #000;
     transition: 0.3s ease;
@@ -84,6 +93,7 @@ body::before {
 
 /* Push content down because menu is fixed */
 .container {
+    margin-top: 80px !important;
     margin-top: 50px;
 }
 
@@ -133,7 +143,7 @@ body::before {
 .hero-logo {
     width: 100%;              /* Makes it responsive */
     max-width: 620px;         /* Adjust size here */
-    width: 650px;      /* change this */
+    width: 800px;      /* change this */
     height: 300px;     /* change this */
     object-fit: contain;      /* Prevents cropping */
     border-radius: 12px;      /* Optional – remove if you want sharp edges */
@@ -191,6 +201,14 @@ body::before {
         max-width: 100%;
         margin-bottom: 25px;
     }
+}
+
+/* Blog Title Color */
+.section-title {
+    color: #636B2F;      /* soft Montessori green */
+    font-size: 48px;     /* adjust if needed */
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
 /* ================= CRAYON BUTTON ================= */
@@ -333,25 +351,43 @@ body {
 }
 
 
-/* TWO COLUMN SECTIONS */
+/* TWO COLUMN SECTIONS (Responsive Layout) */
 .section {
     display: flex;
     justify-content: space-between;
+    gap: 50px;
     margin-bottom: 50px;
-    gap: 40px;
 }
+
+/* TEXT SIDE */
 .section .text {
     flex: 1;
-    line-height: 1.7;
     font-size: 18px;
+    line-height: 1.7;
 }
+
+/* IMAGE SIDE */
 .section .images-column {
     flex: 1;
+    text-align: center;
 }
+
+/* IMAGE STYLE */
 .images-column img {
     width: 100%;
-    margin-bottom: 20px;
-    border-radius: 15px;
+    max-width: 700px;   /* ⭐ change image size here */
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* TODDLER IMAGES SIZE CONTROL */
+.images-column img.toddler-img{
+    width: 260px !important;   /* change width here */
+    height: 370px !important;  /* change height here */
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 8px;
 }
 
 /* BLOG PLACEHOLDERS */
@@ -587,7 +623,19 @@ body {
     color: #000;
 }
 
-/* ========================= NEW FAQ STYLE ========================= */
+/* ================text align of about us page==================== */
+
+.page-title-left {
+    text-align: left !important;
+    width: 100%;
+}
+
+.green-title {
+    color: #636B2F;    /* soft Montessori green */
+    font-weight: 700;
+}
+
+/* ========================= FAQ STYLE ========================= */
 
 .faq-main {
     font-size: 28px;
@@ -635,6 +683,11 @@ body {
 
 .faq-item.open .faq-a {
     display: block;
+}
+
+ul {
+    margin-left: 30px;   /* adjust alignment */
+    padding-left: 20px;
 }
 
 /* CONTACT FORM */
@@ -784,3 +837,20 @@ h1 {
     }
 }
 
+.phone-block {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 900px) {
+
+.section {
+    flex-direction: column;
+    text-align: center;
+}
+
+.section .images-column img {
+    max-width: 90%;
+}
+
+}
