@@ -14,3 +14,19 @@ document.querySelectorAll('.faq-q').forEach(btn => {
         btn.parentElement.classList.toggle('open');
     });
 });
+
+function toggleMenu(){
+
+const menu = document.getElementById("mobileMenu");
+const overlay = document.getElementById("menuOverlay");
+const hamburger = document.querySelector(".hamburger");
+
+menu.classList.toggle("active");
+overlay.classList.toggle("active");
+hamburger.classList.toggle("active");
+
+}
+function toggleMenu() {
+    const menu = document.querySelector(".top-menu");
+    menu.classList.toggle("active");
+}
