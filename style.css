@@ -3,16 +3,21 @@ body,
 p,
 span,
 li,
+ul,
+ol,
 a,
+b,
+div,
 input,
 textarea,
-button {
+button,
+h2, h3, h4, h5, h6 {
     font-family: "Times New Roman", Times, serif;
 }
 
 /* Headings → Keep previous font */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Patrick Hand', cursive;
+h1 {
+    font-family: 'Patrick Hand', cursive !important;
 }
 /* RESET */
 * {
